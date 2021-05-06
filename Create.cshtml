@@ -1,0 +1,56 @@
+@model PBL.Models.chocolate
+
+@{
+    ViewData["Title"] = "Criar";
+}
+
+<h1>Novo Cadastro</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Marca" class="control-label">Qual a Marca do Chocolate ?</label>
+                <input asp-for="Marca" class="form-control" />
+                <span asp-validation-for="Marca" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Validade" class="control-label">Qual a data de Validade ?</label>
+                <input asp-for="Validade" class="form-control" />
+                <span asp-validation-for="Validade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tipo" class="control-label">Qual tipo é o Chocolate ?</label>
+                <input asp-for="Tipo" class="form-control" />
+                <span asp-validation-for="Tipo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cacao" class="control-label">Quantos % de Cacao ele tem ?</label>
+                <input asp-for="Cacao" class="form-control" />
+                <span asp-validation-for="Cacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Preco" class="control-label">Quantos Custa ?</label>
+                <input asp-for="Preco" class="form-control" />
+                <span asp-validation-for="Preco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Desconto" class="control-label">De quanto será o Desconto ?</label>
+                <input asp-for="Desconto" class="form-control" />
+                <h6  style="font-size: 12px;" class="title_information">Os descontos estão limitados a (5, 10 e 15 R$)
+                    </br>
+                    Qualquer valor diferente desses será considerado nulo (0 R$)
+                </h6>
+                <span asp-validation-for="Desconto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Criar Cadastro" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar a Lista</a>
+</div>

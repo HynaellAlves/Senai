@@ -1,0 +1,85 @@
+@model IEnumerable<PBL.Models.chocolate>
+
+@{
+
+
+
+    ViewData["Title"] = "Chocolates da Casa";
+}
+
+<h1>Cadastros Gourmet</h1>
+
+<p>
+    <a asp-action="Create">Realizar um novo Cadastro</a>
+    <br>
+    <a asp-action="Index">Voltar a lista Completa</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Validade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cacao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Preco)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Desconto)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+
+
+
+        {
+
+
+
+            if (item.Preco > 100)
+
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Marca)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Validade)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Tipo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Cacao)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Preco)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Desconto)
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id_Chocolate">Detalhes</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id_Chocolate">Editar</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id_Chocolate">Excluir</a>
+                    </td>
+                </tr>
+
+
+
+            }
+
+        }
+    </tbody>
+</table>
